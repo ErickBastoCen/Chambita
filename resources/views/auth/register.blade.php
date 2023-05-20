@@ -1,75 +1,72 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}" novalidate>
-        @csrf
+<form method="POST" action="{{ route('register') }}" novalidate>
+            @csrf
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Nombre')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
+            <!-- Name -->
+            <div>
+                <x-input-label for="name" :value="__('Nombre')" />
+                <x-text-input id="name" class="block w-full mt-1" type="text" name="name" :value="old('name')" required autofocus />
+                <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            </div>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+            <!-- Email Address -->
+            <div class="mt-4">
+                <x-input-label for="email" :value="__('Email')" />
+                <x-text-input id="email" class="block w-full mt-1" type="email" name="email" :value="old('email')" required />
+                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            </div>
 
-        <!-- Rol -->
-        <div class="mt-4">
-            <x-input-label for="rol" :value="__('Que tipo de Cuenta deseas en DevJobs')" />
-            <select 
-                id="rol"
-                name="rol"
-                class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" 
-            >
-                <option value="">-- Selecciona un Rol --</option>
-                <option value="">Obtener Empleo</option>
-                <option value="">Publicar Empleos</option>
-            </select>
-            <x-input-error :messages="$errors->get('rol')" class="mt-2" />
-        </div>
+            <!-- Type Rol -->
+            <div class="mt-4">
+                <x-input-label for="rol" :value="__('Tipo')" />
+                <select name="rol" id="rol" class="w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                    <option value="">--Seleccionar Rol--</option>
+                    <option value="1">Solicitar empleo</option>
+                    <option value="2">Publicar empleo</option>
+                </select>
+                <x-input-error :messages="$errors->get('rol')" class="mt-2" />
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            </div>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+            <!-- Password -->
+            <div class="mt-4">
+                <x-input-label for="password" :value="__('Password')" />
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+                <x-text-input id="password" class="block w-full mt-1"
+                                type="password"
+                                name="password"
+                                required autocomplete="new-password" />
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Repetir Password')" />
+                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            </div>
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+            <!-- Confirm Password -->
+            <div class="mt-4">
+                <x-input-label for="password_confirmation" :value="__('Repetir Password')" />
 
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
+                <x-text-input id="password_confirmation" class="block w-full mt-1"
+                                type="password"
+                                name="password_confirmation" required />
 
-        <div class="flex justify-between my-5">           
-            <x-link
-                :href="route('login')"    
-            > 
-                Iniciar Sesión               
-            </x-link>
+                <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+            </div>
 
-            <x-link
-                :href="route('password.request')" 
-            > 
-                Olvidaste tu Password 
-            </x-link>           
-        </div>
+            <div class="flex justify-between my-5">
+                <x-link
+                    :href=" route('login')"
+                >
+                    ¿Ya tienes una cuenta?
 
-        <x-primary-button class="w-full justify-center">
-            {{ __('Crear Cuenta') }}
-        </x-primary-button>
-    </form>
+                </x-link>
+                <x-link
+                    :href="route('password.request')"
+                >
+                    ¿Olvidaste tu Password?
+                </x-link>
+
+            </div>
+            <x-primary-button class="w-full justify-center">
+                {{ __('Crear Cuenta') }}
+            </x-primary-button>
+        </form>
 </x-guest-layout>

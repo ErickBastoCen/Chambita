@@ -22,13 +22,31 @@
     </head>
     <body class="antialiased">
         <div>
-            <header>
-                <nav>
-                    <a href="{{route ('login')}}">Iniciar Sesión</a>
-                </nav>
-            </header>
+        <header>
+        <nav class="bg-black">
+            <div class="container mx-auto px-4">
+                <div class="flex items-center justify-between py-4">
+                    <div class="flex items-center">
+                        <a href="#" class="text-white text-lg font-semibold mr-8">Mi Chambita</a>
+                        <a href="{{ route('register') }}" class="text-white hover:text-gray-300 mr-4">Registrarme</a>
+                        <a href="{{ route('login') }}" class="text-white hover:text-gray-300">Iniciar sesión</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
         </div>
-
+        <div class="flex flex-col h-screen justify-center items-center">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">¡Bienvenido a Mi Chambita!</h1>
+        </div>
+        <div>
+            <p class="text-lg text-gray-600 mb-8">El lugar donde ayudamos a los jóvenes a conseguir trabajo rápidamente.</p>
+        </div>
+        <div>
+            <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                Explora nuestras oportunidades de empleo
+            </a>
+        </div>
     </body>
 </html>
 

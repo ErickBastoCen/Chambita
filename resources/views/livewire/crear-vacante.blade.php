@@ -94,7 +94,7 @@
     </div>
 
     <div>
-        <x-primary-button>
+        <x-primary-button class="bg-red-500">
             Crear Vacante
         </x-primary-button>
     </div>

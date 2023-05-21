@@ -1,23 +1,32 @@
 {{-- md:w-1/2: centra el formulario en la pantalla no toma todo el ancho --}}
 {{-- space-y-5: separa cada div dentro del formulario --}}
-<form class="md:w-1/2 space-y-5">
+{{-- con livewire no se requiere @csrf --}}
+{{-- para poder comunicar los datos del form al componente y poderlo enviar utilizar wire:submit.prevent='crearVacante' --}}
+<form class="md:w-1/2 space-y-5" wire:submit.prevent='crearVacante'>
     <div>
         <x-input-label for="titulo" :value="__('Título Vacante')" />
         <x-text-input 
             id="titulo" 
             class="block mt-1 w-full" 
             type="text" 
-            name="titulo" 
+            {{-- validar con livewire cambiar name por wire:model --}}
+            {{-- name="titulo"  --}}
+            wire:model="titulo" 
             :value="old('titulo')"  
             placeholder="Título Vacante"
-        />        
+        />   
+        {{-- el nombre definido con wire:model="titulo" --}}
+        @error('titulo')
+            {{-- $message: el error--}}
+            {{ $message }}
+        @enderror     
     </div>
 
     <div>
         <x-input-label for="salario" :value="__('Salario Mensual')" />
         <select 
             id="salario"
-            name="salario"
+            wire:model="salario"
             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" 
         >    
             <option>-- Seleccione --</option>
@@ -31,7 +40,7 @@
         <x-input-label for="categoria" :value="__('Categoria')" />
         <select 
             id="categoria"
-            name="categoria"
+            wire:model="categoria"
             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" 
         >  
         <option>-- Seleccione --</option>
@@ -47,7 +56,7 @@
             id="empresa" 
             class="block mt-1 w-full" 
             type="text" 
-            name="empresa" 
+            wire:model="empresa" 
             :value="old('empresa')"  
             placeholder="Nombre de la empresa"
         />        
@@ -59,7 +68,7 @@
             id="ultimo_dia" 
             class="block mt-1 w-full" 
             type="date" 
-            name="ultimo_dia" 
+            wire:model="ultimo_dia" 
             :value="old('ultimo_dia')"              
         />     
     </div>
@@ -67,7 +76,7 @@
     <div>
         <x-input-label for="descripcion" :value="__('Descripción Puesto')" />
         <textarea 
-            name="descripcion" 
+            wire:model="descripcion" 
             placeholder="Descripción general del puesto, experiencia"
             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full h-72" 
         >
@@ -80,7 +89,7 @@
             id="imagen" 
             class="block mt-1 w-full" 
             type="file" 
-            name="imagen"             
+            wire:model="imagen"             
         />        
     </div>
 

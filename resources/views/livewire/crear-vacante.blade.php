@@ -17,8 +17,7 @@
         />   
         {{-- el nombre definido con wire:model="titulo" --}}
         @error('titulo')
-            {{-- $message: el error--}}
-            {{ $message }}
+            <livewire:mostrar-alerta :message="$message"/>
         @enderror     
     </div>
 

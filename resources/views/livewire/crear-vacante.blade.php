@@ -33,7 +33,11 @@
             id="categoria"
             name="categoria"
             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" 
-        >        
+        >  
+        <option>-- Seleccione --</option>
+        @foreach ($categorias as $categoria)
+            <option value="{{ $categoria->id}}">{{ $categoria->categoria }}</option>
+        @endforeach       
         </select>      
     </div>
 
@@ -45,7 +49,7 @@
             type="text" 
             name="empresa" 
             :value="old('empresa')"  
-            placeholder="Empresa: ej. Netflix, Uber, Shopify"
+            placeholder="Nombre de la empresa"
         />        
     </div>
 

@@ -32,7 +32,11 @@
             @foreach ($salarios as $salario)
                 <option value="{{ $salario->id}}">{{ $salario->salario }}</option>
             @endforeach    
-        </select>        
+        </select>    
+
+        @error('salario')
+            <livewire:mostrar-alerta :message="$message"/>
+        @enderror   
     </div>
 
     <div>
@@ -47,6 +51,10 @@
             <option value="{{ $categoria->id}}">{{ $categoria->categoria }}</option>
         @endforeach       
         </select>      
+
+        @error('categoria')
+            <livewire:mostrar-alerta :message="$message"/>
+        @enderror   
     </div>
 
     <div>
@@ -59,6 +67,10 @@
             :value="old('empresa')"  
             placeholder="Nombre de la empresa"
         />        
+
+        @error('empresa')
+            <livewire:mostrar-alerta :message="$message"/>
+        @enderror   
     </div>
 
     <div>
@@ -70,6 +82,10 @@
             wire:model="ultimo_dia" 
             :value="old('ultimo_dia')"              
         />     
+
+        @error('ultimo_dia')
+            <livewire:mostrar-alerta :message="$message"/>
+        @enderror   
     </div>
 
     <div>
@@ -80,6 +96,10 @@
             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full h-72" 
         >
         </textarea>  
+
+        @error('descripcion')
+            <livewire:mostrar-alerta :message="$message"/>
+        @enderror   
     </div>
 
     <div>
@@ -90,6 +110,10 @@
             type="file" 
             wire:model="imagen"             
         />        
+
+        @error('imagen')
+            <livewire:mostrar-alerta :message="$message"/>
+        @enderror   
     </div>
 
     <div>

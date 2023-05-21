@@ -49,7 +49,7 @@
         </div>
 
         {{-- w-full: toma el ancho de manera completa  --}}
-        <x-primary-button class="w-full justify-center">
+        <x-primary-button class="w-full justify-center bg-red-500">
             {{ __('Iniciar Sesión') }}
         </x-primary-button>
     </form>

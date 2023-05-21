@@ -65,7 +65,7 @@
             </x-link>
 
         </div>
-        <x-primary-button class="w-full justify-center">
+        <x-primary-button class="w-full justify-center bg-red-500">
             {{ __('Crear Cuenta') }}
         </x-primary-button>
     </form>

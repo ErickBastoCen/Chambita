@@ -34,17 +34,18 @@
         </div>
 
         <div class="flex justify-between my-5">           
-            <x-link
-                :href="route('register')"    
-            > 
-                Crear Cuenta                
-            </x-link>
 
             <x-link
                 :href="route('password.request')" 
             > 
                 Olvidaste tu Password 
-            </x-link>           
+            </x-link>       
+                
+            <x-link
+                :href="route('register')"    
+            > 
+                Crear Cuenta                
+            </x-link>
         </div>
 
         {{-- w-full: toma el ancho de manera completa  --}}

@@ -108,7 +108,8 @@
             id="imagen" 
             class="block mt-1 w-full" 
             type="file" 
-            wire:model="imagen"             
+            wire:model="imagen"  
+            accept="image/*"          
         />        
 
         @error('imagen')

@@ -2,8 +2,8 @@
 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
     @foreach($vacantes as $vacante)
 
-        <div class ="p-6 bg-red-400 border-double rounded-lg">
-            <div>
+        <div class ="p-6 bg-red-200 border-double rounded-lg">
+            <div class="text-center">
                 <a href="#" class="text-xl font-bold">
                     {{ $vacante -> titulo }}
                 </a>
@@ -12,6 +12,20 @@
                 @endphp
                 <p>Postulaciones antes del: {{ $ultimoDia->format('d/m/Y') }}</p>
                 <p> {{ $vacante -> empresa }}</p>
+            </div>
+            <br>
+            <div class="flex flex-col gap-3 items-stretch ">
+                <a href="#" class="bg-yellow-400 py-2 px-4 rounded-lg text-black text-xs font-bold text-center">
+                    Candidatos
+                </a>
+
+                <a href="#" class="bg-green-600 py-2 px-4 rounded-lg text-white text-xs font-bold text-center">
+                    Editar
+                </a>
+
+                <a href="#" class="bg-red-600 py-2 px-4 rounded-lg text-white text-xs font-bold text-center">
+                    Eliminar
+                </a>
             </div>
         </div>
         <br>

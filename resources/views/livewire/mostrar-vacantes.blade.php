@@ -38,3 +38,7 @@
 
     @endif
 </div>
+
+<div class="flex justify-center mt-10">
+    {{ $vacantes->links() }}
+</div>

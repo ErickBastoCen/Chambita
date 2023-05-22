@@ -115,6 +115,14 @@
         @error('imagen')
             <livewire:mostrar-alerta :message="$message"/>
         @enderror   
+
+        <div class="my-5 w-100">
+            @if ($imagen)
+                Imagen: 
+                {{-- url temporal del la imagen todabia no es subida al servidor --}}
+                <img src="{{ $imagen->temporaryUrl() }}" alt="">    
+            @endif
+        </div>
     </div>
 
     <div>

@@ -56,7 +56,11 @@ class CrearVacante extends Component
             'imagen'=> $nombre_imagen,
             'user_id'=> auth()->user()->id,
         ]);
-        //redireccionamos al usuario
+        //mostramos un mensaje y redireccionamos al usuario
+        session()->flash('mensaje', 'Se ha publicado correctamente');
+
+        return redirect()->to('/dashboard');
+
     }
 
     public function render()

@@ -1,8 +1,4 @@
-{{-- md:w-1/2: centra el formulario en la pantalla no toma todo el ancho --}}
-{{-- space-y-5: separa cada div dentro del formulario --}}
-{{-- con livewire no se requiere @csrf --}}
-{{-- para poder comunicar los datos del form al componente y poderlo enviar utilizar wire:submit.prevent='crearVacante' --}}
-<form class="md:w-1/2 space-y-5" wire:submit.prevent='crearVacante'>
+<form class="md:w-1/2 space-y-5" wire:submit.prevent='editarVacante'>
     <div>
         <x-input-label for="titulo" :value="__('Título Vacante')" />
         <x-text-input 
@@ -108,26 +104,29 @@
             id="imagen" 
             class="block mt-1 w-full" 
             type="file" 
-            wire:model="imagen"  
+            wire:model="nueva_imagen"  
             accept="image/*"          
         />        
+        <div class="my-6 w-100">
+            <x-label :value="__('Imagen Actual')" />
+            <img src = "{{ asset ('storage/vacantes/'.$imagen ) }}" alt="{{ 'Imagen Vacante '.$titulo }}"/>
+        </div>
 
-        @error('imagen')
+        @error('nueva_imagen')
             <livewire:mostrar-alerta :message="$message"/>
         @enderror   
 
         <div class="my-5 w-100">
-            @if ($imagen)
+            @if ($nueva_imagen)
                 Imagen: 
-                {{-- url temporal del la imagen todabia no es subida al servidor --}}
-                <img src="{{ $imagen->temporaryUrl() }}" alt="">    
+                <img src="{{ $nueva_imagen->temporaryUrl() }}" alt="">    
             @endif
         </div>
     </div>
 
     <div>
         <x-primary-button class="bg-red-500">
-            Crear Vacante
+            Actualizar datos
         </x-primary-button>
     </div>
 

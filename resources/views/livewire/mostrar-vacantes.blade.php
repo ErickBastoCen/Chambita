@@ -5,7 +5,7 @@
 
                 <div class ="p-6 bg-red-200 border-double rounded-lg">
                     <div class="text-center">
-                        <a href="#" class="text-xl font-bold">
+                        <a href="{{route ('vacantes.show', $vacante->id )}}" class="text-xl font-bold">
                             {{ $vacante -> titulo }}
                         </a>
                         @php

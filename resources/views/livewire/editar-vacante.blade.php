@@ -109,7 +109,7 @@
         />        
         <div class="my-6 w-100">
             <x-label :value="__('Imagen Actual')" />
-            <img src = "{{ asset ('storage/vacantes/'.$imagen ) }}" alt="{{ 'Imagen Vacante '.$titulo }}"/>
+            <img src="{{ asset('storage/vacantes/' . $imagen.'png' )}}" alt="{{'Imagen vacante '. $titulo}}">
         </div>
 
         @error('nueva_imagen')

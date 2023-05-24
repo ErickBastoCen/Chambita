@@ -42,4 +42,10 @@
 
         </div>
     </div>
+
+    <div class="mt-5 bg-gray-100 border border-dashed p-5 text-center">
+        <p>
+            ¿Quieres esta chambita? <a class=" font-bold text-red-600" href="{{ route('register')}}"> Yes, esto puede ser un ticket</a></p>
+        </p>
+    </div>
 </div>

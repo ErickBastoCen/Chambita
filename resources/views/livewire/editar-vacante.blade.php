@@ -1,5 +1,5 @@
 <form class="md:w-1/2 space-y-5" wire:submit.prevent='editarVacante'>
-    <div>
+    <div >
         <x-input-label for="titulo" :value="__('Título Vacante')" />
         <x-text-input 
             id="titulo" 

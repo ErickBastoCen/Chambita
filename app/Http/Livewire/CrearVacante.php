@@ -42,7 +42,7 @@ class CrearVacante extends Component
 
         //creamos vacante 
         $imagen = $this->imagen->store('public/vacantes');
-        $nombre_imagen = str_replace('public/vacantes/', '', $imagen);
+        $datos['imagen'] = str_replace('public/vacantes/', '', $imagen);
         //dd($nombre_imagen);
 
         //creamos la vacante
@@ -53,7 +53,7 @@ class CrearVacante extends Component
             'empresa'=> $datos['empresa'],
             'ultimo_dia'=> $datos['ultimo_dia'],
             'descripcion'=> $datos['descripcion'],
-            'imagen'=> $nombre_imagen,
+            'imagen'=> $datos['imagen'],
             'user_id'=> auth()->user()->id,
         ]);
         //mostramos un mensaje y redireccionamos al usuario

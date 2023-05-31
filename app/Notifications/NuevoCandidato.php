@@ -7,17 +7,20 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class NuCandidato extends Notification
+class NuevoCandidato extends Notification
 {
     use Queueable;
 
     /**
      * Create a new notification instance.
+     *
+     * @return void
      */
 
     protected $id_vacante;
     protected $nombre_vacante;
     protected $usuario_id;
+
 
     public function __construct($id_vacante, $nombre_vacante, $usuario_id)
     {
@@ -29,33 +32,43 @@ class NuCandidato extends Notification
     /**
      * Get the notification's delivery channels.
      *
-     * @return array<int, string>
+     * @param  mixed  $notifiable
+     * @return array
      */
-    public function via(object $notifiable): array
+    public function via($notifiable)
     {
-        return ['mail','database'];
+        return ['mail', 'database'];
     }
 
     /**
      * Get the mail representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return \Illuminate\Notifications\Messages\MailMessage
      */
-    public function toMail(object $notifiable): MailMessage
+    public function toMail($notifiable)
     {
-        $url = url('/candidatos/' . $this->id_vacante);
+        $url = url('/notificaciones');
+
         return (new MailMessage)
-                    ->line('Hay alguien interesado en la chambita que publicaste')
-                    ->line('La chambita es:'. $this->nombre_vacante)
+                    ->line('Hey! hay alguien que quiere la chambita')
+                    ->line('La de ' . $this->nombre_vacante )
                     ->action('Ver', $url)
-                    ->line('Mi Chambita te espera');
+                    ->line('Constestale pronto, nos vemos');
     }
 
-    //almacenamos notificaciones en la bd
-    public function toDatabase($notifiable)
+    /**
+     * Get the array representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return array
+     */
+    public function toArray($notifiable)
     {
         return [
             'id_vacante' => $this->id_vacante,
-            'nombre_vacante' => $this->nombre_vacante,
-            'usuario_id' => $this->usuario_id 
+            "nombre_vacante" => $this->nombre_vacante,
+            "usuario_id" => $this->usuario_id
         ];
     }
 }
